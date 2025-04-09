@@ -1,0 +1,43 @@
+//lab 3
+// Paso 1: Declaración de Variables
+let numero1;
+let numero2;
+let operacion;
+
+// Paso 2: Función para realizar operaciones
+function realizarOperacion(num1, num2, operacion) {
+  if (operacion == 'suma') {
+    return num1+num2;
+  } else if (operacion == 'resta') {
+    return num1-num2;
+  } else if (operacion == 'multiplicacion') {
+    return num1*num2;
+  } else if (operacion == 'division') {
+    // Paso 3: Validación de división por cero
+    if (num2 == 0) {
+      return 'la division entre 0 esta indeterminada';
+    }
+    return num1/num2;
+  } else {
+    // Validación de operación no válida
+    return "Error: Operación no válida.";
+  }
+}
+
+// Paso 4: Bucle para realizar múltiples operaciones
+while (true) {
+  operacion = prompt('Ingrese la operación a realizar (suma, resta, multiplicacion, division) o escriba salir para terminar:');
+
+  if (operacion =='salir') {
+    alert('desidiste salir?, si es asi, ¡Hasta luego');
+    break;
+  }
+
+  numero1 = parseFloat(prompt('Ingrese el primer número:'));
+  numero2 = parseFloat(prompt('Ingrese el segundo número:'));
+
+  const resultado = realizarOperacion(numero1, numero2, operacion);
+
+  // Paso 5: Mostrar resultado
+  alert('Resultado: ' + resultado);
+}
